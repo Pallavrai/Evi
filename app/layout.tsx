@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "EventHandler",
@@ -18,7 +18,9 @@ export default function RootLayout({
       <body
         className={`bg-[#060010]`}
       >
+        
         {children}
+        <Navbar />
       </body>
     </html>
   );
