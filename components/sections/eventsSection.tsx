@@ -1,39 +1,36 @@
-import React from 'react'
-import EventsCard from '@/components/EventsCard'
-import { getEvents } from '@/services/events'
+import EventsCards from "@/components/EventsCard";
+import { getEvents } from "@/services/events";
+import { Suspense } from "react";
 
 const EventsSection = async () => {
+  const eventsPromise = getEvents(); // this promise fires on creation so
+  // the work starts immediately
+  //  i removed await so that the html shell below can reach the client faster
 
-    const eventsData = await getEvents();
-    
-	return (
-		<section className="py-16 px-6">
-			<div className="max-w-6xl mx-auto">
-				{/* Section Header */}
-				<div className="text-center mb-12">
-					<h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-						Upcoming Events
-					</h2>
-					<p className="text-zinc-400 max-w-2xl mx-auto">
-						Discover exciting events happening near you. Join us for unforgettable
-						experiences.
-					</p>
-				</div>
+  return (
+    <section className="py-16 px-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Upcoming Events
+          </h2>
+          <p className="text-zinc-400 max-w-2xl mx-auto">
+            Discover exciting events happening near you. Join us for
+            unforgettable experiences.
+          </p>
+        </div>
 
-				{/* Events Grid */}
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-					{eventsData.map((event, index) => (
-						<EventsCard
-							key={index}
-							title={event.title}
-							description={event.description}
-							imageUrl={event.imageUrl}
-						/>
-					))}
-				</div>
-			</div>
-		</section>
-	)
-}
+        {/* Events Grid */}
+        {/* this portion will show fallback on client until the data from the passed promsie resolves  */}
 
-export default EventsSection
+        <Suspense fallback={<div>Loading events...</div>}>
+          <EventsCards eventsPromise={eventsPromise} />
+        </Suspense>
+      </div>
+    </section>
+  );
+};
+
+export default EventsSection;
+
