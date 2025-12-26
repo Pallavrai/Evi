@@ -1,5 +1,5 @@
-"use client"
-import React from 'react'
+"use client";
+
 import LiquidEther from "@/components/LiquidEther";
 import FallingText from "@/components/FallingText";
 import SplitText from "@/components/SplitText";
@@ -7,8 +7,15 @@ import SplitText from "@/components/SplitText";
 const HeroSection = () => {
   return (
     <>
-    {/* Background */}
-      <div style={{ width: "100%", height: "100dvh", position: "fixed", zIndex: 0 }}>
+      {/* Background */}
+      <div
+        style={{
+          width: "100%",
+          height: "100dvh",
+          position: "fixed",
+          zIndex: 0,
+        }}
+      >
         <LiquidEther
           colors={["#5227FF", "#FF9FFC", "#B19EEF"]}
           mouseForce={20}
@@ -54,7 +61,6 @@ const HeroSection = () => {
             threshold={0.1}
             rootMargin="-100px"
             textAlign="center"
-          
           />
         </div>
 
@@ -66,7 +72,7 @@ const HeroSection = () => {
             maxWidth: "90dvh",
             height: "300px",
             marginTop: "2rem",
-            color: "#B19EEF", /* Lavender - matches site aesthetic */
+            color: "#B19EEF" /* Lavender - matches site aesthetic */,
           }}
         >
           <FallingText
@@ -89,7 +95,8 @@ const HeroSection = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default HeroSection
+export default HeroSection;
+

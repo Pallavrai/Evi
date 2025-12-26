@@ -1,30 +1,46 @@
-import { use } from "react";
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { getEvents } from "@/services/events";
 
-import { Event } from "@/types/events";
+import type { Event } from "@/types/events";
 
-interface EventsCardProps {
-  eventsPromise: Promise<Event[]>;
-}
+const EventsCards = () => {
+  const [events, setEvents] = useState<Event[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
-const EventsCards = ({ eventsPromise }: EventsCardProps) => {
-  const events = use(eventsPromise); // react-19 utiliy that lets us unwrap promises in client components
-  // client components cannot be async so we use this utility to unwrap the promise
-  // but the component using it should be wrapped in suspense so that the loading state can be handled
+  // this is not the best way to fetch data in client components
+  // it should be replaced with SWR or React Query for better data fetching and caching
+  useEffect(() => {
+    getEvents()
+      .then((data) => {
+        setEvents(data);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
+  }, []);
+
+  if (error)
+    return (
+      <div className="text-red-500 text-center">
+        <p>Error loading events: {error}</p>
+      </div>
+    );
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {events.map((event) => {
         return (
           <div
-            key={event.id}
+            key={`${event.id}-`}
             className="group relative overflow-hidden rounded-xl  from-zinc-900 to-zinc-800 border border-zinc-700/50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
           >
             {/* Image */}
             <div className="relative h-48 overflow-hidden">
               <Image
                 src={
-
                   "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=300&fit=crop"
                 }
                 alt={event.title}
@@ -58,4 +74,3 @@ const EventsCards = ({ eventsPromise }: EventsCardProps) => {
 };
 
 export default EventsCards;
-

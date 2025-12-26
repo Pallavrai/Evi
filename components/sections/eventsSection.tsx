@@ -1,12 +1,6 @@
 import EventsCards from "@/components/EventsCard";
-import { getEvents } from "@/services/events";
-import { Suspense } from "react";
 
 const EventsSection = async () => {
-  const eventsPromise = getEvents(); // this promise fires on creation so
-  // the work starts immediately
-  //  i removed await so that the html shell below can reach the client faster
-
   return (
     <section className="py-16 px-6">
       <div className="max-w-6xl mx-auto">
@@ -23,14 +17,10 @@ const EventsSection = async () => {
 
         {/* Events Grid */}
         {/* this portion will show fallback on client until the data from the passed promise resolves  */}
-
-        <Suspense fallback={<div>Loading events...</div>}>
-          <EventsCards eventsPromise={eventsPromise} />
-        </Suspense>
+        <EventsCards />
       </div>
     </section>
   );
 };
 
 export default EventsSection;
-

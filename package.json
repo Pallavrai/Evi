@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
@@ -12,10 +12,12 @@
     "@gsap/react": "^2.1.2",
     "@prisma/adapter-pg": "^7.2.0",
     "@prisma/client": "^7.2.0",
+    "@types/matter-js": "^0.20.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^17.2.3",
     "gsap": "^3.13.0",
+    "i": "^0.3.7",
     "lucide-react": "^0.562.0",
     "matter-js": "^0.20.0",
     "mongodb": "^7.0.0",
