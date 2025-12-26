@@ -11,7 +11,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { icon: <Home size={20} />, label: "Home", href: "/" },
-  { icon: <User size={20} />, label: "About", href: "/about" },
+  { icon: <User size={20} />, label: "About", href: "/#about" }, 
   { icon: <Mail size={20} />, label: "Contact", href: "/contact" },
   { icon: <Settings size={20} />, label: "Settings", href: "/settings" },
 ];

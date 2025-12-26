@@ -22,7 +22,7 @@ const EventsSection = async () => {
         </div>
 
         {/* Events Grid */}
-        {/* this portion will show fallback on client until the data from the passed promsie resolves  */}
+        {/* this portion will show fallback on client until the data from the passed promise resolves  */}
 
         <Suspense fallback={<div>Loading events...</div>}>
           <EventsCards eventsPromise={eventsPromise} />

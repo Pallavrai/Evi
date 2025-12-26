@@ -9,7 +9,7 @@ interface EventsCardProps {
 
 const EventsCards = ({ eventsPromise }: EventsCardProps) => {
   const events = use(eventsPromise); // react-19 utiliy that lets us unwrap promises in client components
-  // client ocmponents cannot be async so we use this utility to unwrap the promise
+  // client components cannot be async so we use this utility to unwrap the promise
   // but the component using it should be wrapped in suspense so that the loading state can be handled
 
   return (
@@ -17,7 +17,7 @@ const EventsCards = ({ eventsPromise }: EventsCardProps) => {
       {events.map((event, idx) => {
         return (
           <div
-            key={`${event}-${idx}`}
+            key={event._id}
             className="group relative overflow-hidden rounded-xl  from-zinc-900 to-zinc-800 border border-zinc-700/50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
           >
             {/* Image */}
