@@ -4,7 +4,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
 export async function getEvents(): Promise<Event[]> {
   const events = await prisma.eventsModel.findMany();
-
+  
   return events;
 }
 
