@@ -14,17 +14,17 @@ const EventsCards = ({ eventsPromise }: EventsCardProps) => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {events.map((event, idx) => {
+      {events.map((event) => {
         return (
           <div
-            key={event._id}
+            key={event.id}
             className="group relative overflow-hidden rounded-xl  from-zinc-900 to-zinc-800 border border-zinc-700/50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
           >
             {/* Image */}
             <div className="relative h-48 overflow-hidden">
               <Image
                 src={
-                  event.imageUrl ||
+
                   "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=300&fit=crop"
                 }
                 alt={event.title}
