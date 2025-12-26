@@ -1,13 +1,2 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-
-.highlighted {
-  color: #FF9FFC;
-  font-weight: 600;
-  text-shadow: 0 0 20px rgba(255, 159, 252, 0.6);
-}
-
-/* FallingText default text color */
-.falling-text-default {
-  color: #B19EEF;
-}
