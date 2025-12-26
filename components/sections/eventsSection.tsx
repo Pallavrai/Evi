@@ -3,6 +3,7 @@ import { getEvents } from "@/services/events";
 import { Suspense } from "react";
 
 const EventsSection = async () => {
+  "use cache";
   const eventsPromise = getEvents(); // this promise fires on creation so
   // the work starts immediately
   //  i removed await so that the html shell below can reach the client faster
@@ -33,4 +34,3 @@ const EventsSection = async () => {
 };
 
 export default EventsSection;
-
