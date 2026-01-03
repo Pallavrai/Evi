@@ -1,5 +1,5 @@
 import EventsCards from "@/components/EventsCard";
-import { getEvents } from "@/services/events";
+import { getEvents } from "@/actions/events";
 import { Suspense } from "react";
 
 const EventsSection = async () => {
