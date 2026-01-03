@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -21,6 +23,7 @@
     "mongodb": "^7.0.0",
     "mongoose": "^9.0.2",
     "next": "16.1.1",
+    "pg": "^8.16.3",
     "posthog-js": "^1.310.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
@@ -30,6 +33,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/pg": "^8.16.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "drizzle-kit": "^0.31.8",
