@@ -1,8 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Evi - Events Tracking & Handling Platform
+
+Evi is a modern events tracking and handling platform built with Next.js, designed to help you manage and showcase events seamlessly.
+
+## Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org) (App Router)
+- **Database:** PostgreSQL with [Drizzle ORM](https://orm.drizzle.team)
+- **Styling:** Tailwind CSS
+- **UI Components:** shadcn/ui
+- **Containerization:** Docker
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- PostgreSQL (local or Docker)
+- npm / yarn / pnpm / bun
+
+### Environment Setup
+
+Create a `.env.local` file in the root directory:
+
+```env
+DATABASE_URL=postgresql://username:password@localhost:5432/evi
+```
+
+### Database Setup
+
+Start PostgreSQL using Docker:
+
+```bash
+docker-compose up -d
+```
+
+Run database migrations:
+
+```bash
+npx drizzle-kit migrate
+```
+
+### Development Server
 
 ```bash
 npm run dev
@@ -14,23 +52,46 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+├── actions/          # Server actions
+├── app/              # Next.js App Router pages & API routes
+├── components/       # React components
+│   └── sections/     # Page sections (hero, events, about)
+├── db/               # Database configuration & schema
+│   └── migrations/   # Drizzle migrations
+├── lib/              # Utility functions
+├── providers/        # React context providers
+├── public/           # Static assets
+└── types/            # TypeScript type definitions
+```
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- 📅 Event management and tracking
+- 🎨 Modern UI with animated components
+- 🗄️ PostgreSQL database with Drizzle ORM
+- 🐳 Docker support for easy deployment
+- ⚡ Server-side rendering with Next.js App Router
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy Evi is using the [Vercel Platform](https://vercel.com/new).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For other deployment options, check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
+
+## License
+
+MIT
