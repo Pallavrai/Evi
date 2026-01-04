@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Home, User, Settings, Mail, Menu } from "lucide-react";
+import { Home, User, Settings, Mail, LogIn } from "lucide-react";
 
 interface NavItem {
   icon: React.ReactNode;
@@ -14,6 +14,7 @@ const navItems: NavItem[] = [
   { icon: <User size={20} />, label: "About", href: "/#about" }, 
   { icon: <Mail size={20} />, label: "Contact", href: "/contact" },
   { icon: <Settings size={20} />, label: "Settings", href: "/settings" },
+  { icon: <LogIn size={20} />, label: "Sign In", href: "/signin" },
 ];
 
 export default function Navbar() {

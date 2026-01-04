@@ -22,6 +22,13 @@
       "when": 1767529653710,
       "tag": "0002_woozy_madame_hydra",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1767535897894,
+      "tag": "0003_fuzzy_sprite",
+      "breakpoints": true
     }
   ]
 }
