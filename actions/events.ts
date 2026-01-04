@@ -6,6 +6,7 @@ import { eq,not } from "drizzle-orm";
 import { Event } from "@/types/events";
 
 export async function getEvents() {
+  await new Promise((resolve) => setTimeout(resolve, 5000)); // Simulate delay
   const allEvents = await db.select().from(events);
   return allEvents;
 }

@@ -15,6 +15,13 @@
       "when": 1767451007135,
       "tag": "0001_zippy_switch",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1767529653710,
+      "tag": "0002_woozy_madame_hydra",
+      "breakpoints": true
     }
   ]
 }
